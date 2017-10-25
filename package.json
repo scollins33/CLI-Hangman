@@ -1,0 +1,22 @@
+{
+  "name": "cli-hangman",
+  "version": "1.0.0",
+  "description": "Hangman CLI Game (Homework 11)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scollins33/CLI-Hangman.git"
+  },
+  "author": "Sean Collins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scollins33/CLI-Hangman/issues"
+  },
+  "homepage": "https://github.com/scollins33/CLI-Hangman#readme",
+  "dependencies": {
+    "inquirer": "^3.3.0"
+  }
+}
