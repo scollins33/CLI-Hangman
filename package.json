@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/scollins33/CLI-Hangman#readme",
   "dependencies": {
-    "inquirer": "^3.3.0"
+    "inquirer": "^3.3.0",
+    "urban": "^0.3.1"
   }
 }
