@@ -4,32 +4,39 @@
 
 // pull in the Urban npm module to get a random word
 // get Letter module as well
-var urban = require('urban');
-var Letter = require('./letter.js');
+const urban = require('urban');
+const Letter = require('./letter.js');
 
 // set up Word Constructor
 function Word() {
-    this.value = '';
+    this.isSet = false;
 }
 
-// add function to generate a new word
+// get new word from Urban Dictionary
+// then process into separate letters
+// set 'isSet' to true once all this is complete
 Word.prototype.getNewWord = function () {
-    // call urban API for random word
-    urban.random().first(function (response) {
+
+    // use arrow function to preserve 'this'
+    urban.random().first((response) => {
         // set the word value
+        console.log('The word is: ' + response.word);
         this.value = response.word;
 
         // split the word into a string
         // then loop over it and create a Letter object for each letter
-        var characters = this.value.split('');
-        var letters = [];
+        let characters = this.value.split('');
+        let letters = [];
 
-        for (var i = 0; i < characters.length; i++) {
+        for (let i = 0; i < characters.length; i++) {
             letters.push(new Letter(characters[i]));
         }
 
         // set the array of Letter objects
         this.letters = letters;
+
+        this.isSet = true;
+        console.log('Word and Letters have been set');
     });
 };
 

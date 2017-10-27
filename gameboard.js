@@ -1,8 +1,20 @@
-var Word = require('./word.js');
+const Word = require('./word.js');
 
-function Gameboard(pWord) {
-    var gameWord = new Word;
-
-    gameWord.getNewWord();
-
+function Gameboard() {
+    this.gameWord = new Word;
+    this.gameWord.getNewWord(this.gameWord.processWord);
 }
+
+Gameboard.prototype.showWord = function () {
+    if (this.gameWord.isSet === false) {
+        console.log('waiting for word...')
+    } else {
+        console.log(this.gameWord);
+    }
+};
+
+Gameboard.prototype.startGame = function () {
+
+};
+
+module.exports = Gameboard;
