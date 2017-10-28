@@ -27,7 +27,6 @@ Word.prototype.getNewWord = function () {
     // use arrow function to preserve 'this'
     urban.random().first((response) => {
         // set the word value
-        console.log(`The word is: ${response.word}`);
         this.value = response.word;
         this.def = response.definition;
 
@@ -45,7 +44,6 @@ Word.prototype.getNewWord = function () {
         this.length = letters.length;
 
         this.isSet = true;
-        console.log('Word and Letters have been set');
     });
 };
 
