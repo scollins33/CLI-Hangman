@@ -10,19 +10,22 @@
 // hidden is boolean to check it's status
 // rep is hwo it should be represented on the board
 function Letter(pValue) {
-    this.value = pValue;
+    this.value = pValue.toLowerCase();
     this.hidden = true;
     this.rep = '_';
 }
 
-Letter.prototype.checkStatus = function () {
+// return the status (hidden / revealed)
+Letter.prototype.isHidden = function () {
     return this.hidden;
 };
 
+// compare the letter to the passed value
 Letter.prototype.checkValue = function (pGuess) {
     return (pGuess === this.value);
 };
 
+// make the letter known
 Letter.prototype.reveal = function () {
     this.hidden = false;
     this.rep = this.value;

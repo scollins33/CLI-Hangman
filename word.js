@@ -7,7 +7,14 @@
 const urban = require('urban');
 const Letter = require('./letter.js');
 
-// set up Word Constructor
+/*  Word Constructor
+
+    Properties:
+        isSet (bool)
+        value (string)
+        def (string)
+        letters (array of Letters)
+*/
 function Word() {
     this.isSet = false;
 }
@@ -20,8 +27,9 @@ Word.prototype.getNewWord = function () {
     // use arrow function to preserve 'this'
     urban.random().first((response) => {
         // set the word value
-        console.log('The word is: ' + response.word);
+        console.log(`The word is: ${response.word}`);
         this.value = response.word;
+        this.def = response.definition;
 
         // split the word into a string
         // then loop over it and create a Letter object for each letter
@@ -34,6 +42,7 @@ Word.prototype.getNewWord = function () {
 
         // set the array of Letter objects
         this.letters = letters;
+        this.length = letters.length;
 
         this.isSet = true;
         console.log('Word and Letters have been set');
